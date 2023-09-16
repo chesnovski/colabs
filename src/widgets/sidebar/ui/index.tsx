@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styles from './SideBar.module.scss'
 
-import { HomeIcon } from '@/shared/assets'
+import { CreateIcon, HomeIcon, MessengerIcon, ProfileIcon, SearchIcon } from '@/shared/assets'
 
 export const SideBar = () => {
   return (
@@ -12,29 +12,41 @@ export const SideBar = () => {
           <li className="">
             <Link legacyBehavior href="/">
               <a>
-                <HomeIcon className=" h-8 w-8 fill-current" />
+                <HomeIcon className=" h-6 w-6 fill-current" />
                 <span>Home</span>
               </a>
             </Link>
           </li>
           <li className="">
             <Link legacyBehavior href="/create">
-              <a>Create</a>
+              <a>
+                <CreateIcon className=" h-6 w-6 fill-current" />
+                <span>Create</span>
+              </a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/profile">
-              <a>My Profile</a>
+              <a>
+                <ProfileIcon className=" h-6 w-6 fill-current" />
+                <span>My Profile</span>
+              </a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/messenger">
-              <a>Messenger</a>
+              <a>
+                <MessengerIcon className=" h-6 w-6 fill-current" />
+                <span>Messenger</span>
+              </a>
             </Link>
           </li>
           <li>
             <Link legacyBehavior href="/search">
-              <a>Search</a>
+              <a>
+                <SearchIcon className=" h-6 w-6 fill-current" />
+                <span>Search</span>
+              </a>
             </Link>
           </li>
         </ul>

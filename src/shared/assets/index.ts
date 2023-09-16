@@ -1,1 +1,5 @@
 export { default as HomeIcon } from './icons/HomeIcon.svg'
+export { default as CreateIcon } from './icons/CreateIcon.svg'
+export { default as ProfileIcon } from './icons/ProfileIcon.svg'
+export { default as MessengerIcon } from './icons/MessengerIcon.svg'
+export { default as SearchIcon } from './icons/SearchIcon.svg'
