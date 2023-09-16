@@ -2,6 +2,8 @@ import Link from 'next/link'
 
 import styles from './SideBar.module.scss'
 
+import { HomeIcon } from '@/shared/assets'
+
 export const SideBar = () => {
   return (
     <div className={styles.main}>
@@ -9,7 +11,10 @@ export const SideBar = () => {
         <ul className={styles.ul}>
           <li className="">
             <Link legacyBehavior href="/">
-              <a>Home</a>
+              <a>
+                <HomeIcon className=" h-8 w-8 fill-current" />
+                <span>Home</span>
+              </a>
             </Link>
           </li>
           <li className="">
