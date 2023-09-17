@@ -1,3 +1,5 @@
+import { FC } from 'react'
+
 import Link from 'next/link'
 
 import styles from './SideBar.module.scss'
@@ -13,7 +15,7 @@ import {
   StatsIcon,
 } from '@/shared/assets'
 
-export const SideBar = () => {
+export const SideBar: FC = () => {
   return (
     <div className={styles.main}>
       <div>
