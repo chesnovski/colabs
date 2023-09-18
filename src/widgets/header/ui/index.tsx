@@ -6,7 +6,7 @@ import { ChevronDownIcon, NoticeIcon } from '@/shared/assets'
 
 export const Header: FC = () => {
   return (
-    <h1 className="h-16 px-4 py-2 px-16 flex justify-between border-b border-gray-500 items-center  text-gray-400">
+    <h1 className="h-16  py-2 px-16 flex justify-between border-b border-gray-500 items-center  text-gray-400">
       <Link legacyBehavior href="/">
         <a className="text-4xl">Colabs</a>
       </Link>

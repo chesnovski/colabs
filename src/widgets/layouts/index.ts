@@ -1,1 +1,1 @@
-export { BaseLayout } from './base-layout/ui'
+export { getLayout } from './base-layout/ui'

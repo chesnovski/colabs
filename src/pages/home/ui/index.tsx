@@ -1,3 +1,7 @@
+import { getLayout } from '@/widgets/layouts/base-layout/ui'
+
 export const Home = () => {
-  return <div>PagesHome</div>
+  return <div>HomePage</div>
 }
+
+Home.getLayout = getLayout

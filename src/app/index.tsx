@@ -1,16 +1,22 @@
-import type { AppProps } from 'next/app'
 import '@/styles/globals.css'
 
-import { BaseLayout } from '../widgets/layouts'
+import type { ReactElement, ReactNode } from 'react'
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <>
-      <BaseLayout>
-        <Component {...pageProps} />
-      </BaseLayout>
-    </>
-  )
+import type { NextPage } from 'next'
+import { AppProps } from 'next/app'
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+function App({ Component, pageProps }: AppPropsWithLayout) {
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout ?? (page => page)
+
+  return getLayout(<Component {...pageProps} />)
 }
 
 export default App

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactElement, ReactNode } from 'react'
 
 import { Header } from '../../../widgets/header'
 import { SideBar } from '../../../widgets/sidebar'
@@ -19,4 +19,8 @@ export const BaseLayout: FC<Props> = ({ children }) => {
       </div>
     </div>
   )
+}
+
+export const getLayout = (page: ReactElement) => {
+  return <BaseLayout>{page}</BaseLayout>
 }
