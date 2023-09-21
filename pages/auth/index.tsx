@@ -1,7 +1,9 @@
-import React from 'react'
+import { NextPage } from 'next'
 
-const Auth = () => {
-  return <div>Auth</div>
+import { Auth } from '@/pages/auth'
+
+const AuthPage: NextPage = () => {
+  return <Auth />
 }
 
-export default Auth
+export default AuthPage
