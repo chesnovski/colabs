@@ -3,14 +3,14 @@ import React, { FC, forwardRef } from 'react'
 import { IField } from './field.interface'
 
 export const Field = forwardRef<HTMLInputElement, IField>(
-  ({ placeholder, error, type = 'text', style, ...rest }, ref) => {
+  ({ placeholder, helperText, type = 'text', style, ...rest }, ref) => {
     return (
-      <div style={style}>
+      <div className="my-2" style={style}>
         <label>
-          <span>{placeholder}</span>
-          <input ref={ref} type={type} {...rest} />
+          <span className="px-2">{placeholder}</span>
+          <input ref={ref} type={type} {...rest} className="border outline-red-400" />
         </label>
-        {error && <div>{error.message}</div>}
+        {helperText && <div>{helperText}</div>}
       </div>
     )
   }

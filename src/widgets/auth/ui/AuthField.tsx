@@ -13,21 +13,31 @@ interface IAuthFields {
 export const AuthField: FC<IAuthFields> = ({
   register,
   formState: { errors },
-  isPasswordRequired,
+  isPasswordRequired = false,
 }) => {
   return (
-    <Field
-      {...register('password', {
-        required: 'Password is required',
-        minLength: {
-          value: 6,
-          message: 'Please enter a valid password',
-        },
-      })}
-      placeholder="Password"
-      type="password"
-      error={errors.message}
-    ></Field>
+    <>
+      <Field
+        {...register('email', {
+          required: 'Email is required',
+        })}
+        placeholder="Email"
+        // error={errors.password}
+        helperText={errors.email?.message?.toString()}
+      ></Field>
+      <Field
+        {...register('password', {
+          required: 'Password is required',
+          minLength: {
+            value: 6,
+            message: 'Please enter a valid password',
+          },
+        })}
+        placeholder="Password"
+        type="password"
+        // error={errors.password}
+        helperText={errors.password?.message?.toString()}
+      ></Field>
+    </>
   )
-  
 }

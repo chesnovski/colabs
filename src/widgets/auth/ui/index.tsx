@@ -2,6 +2,8 @@ import { FC, useState } from 'react'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { AuthField } from './AuthField'
+
 interface IAuthInput {
   username: string
   email: string
@@ -31,16 +33,19 @@ export const Auth: FC = () => {
   }
 
   return (
-    <section>
-      <form>
-        <div>
-          <button type="submit" onClick={() => setType('register')}>
-            Sign Up
-          </button>
-        </div>
-        <span>Do you have an account?</span>
-        <div>
-          <span>Sign In</span>
+    <section className="flex justify-center items-center h-screen">
+      <form className="border-2 px-8 py-8">
+        <AuthField formState={formState} register={registerInput} isPasswordRequired />
+        <div className="flex flex-col justify-center items-center">
+          <div>
+            <button type="submit" onClick={() => setType('register')}>
+              Sign Up
+            </button>
+          </div>
+          <span>Do you have an account?</span>
+          <div>
+            <span>Sign In</span>
+          </div>
         </div>
       </form>
     </section>
