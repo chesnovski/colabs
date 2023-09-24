@@ -1,86 +1,33 @@
 import { FC, useState } from 'react'
 
+import styles from './SignUp.module.scss'
+
+import { Field, PasswordField } from '@/shared'
 import { EyeOffOutlineIcon, EyeOutlineIcon, GihubIcon, GoogleIcon } from '@/shared/assets'
 
 export const SignUpWidget: FC = () => {
-  const [type, setType] = useState('password')
-
-  const togglePassword = () => {
-    if (type === 'password') setType('text')
-    else setType('password')
-  }
-
   return (
-    <div className=" border border-dark-100 rounded-sm px-8 py-8 max-md:w-full lg:w-1/4 bg-dark-500">
-      <h3 className=" text-light-100 font-bold text-xl text-center ">Sign Up</h3>
-      <div className="flex justify-center items-center my-4">
-        <a href="" className="mx-8">
+    <div className={styles.wrapper}>
+      <div className={styles.heading}>Sign Up</div>
+      <div className={styles.icon}>
+        <a href="">
           <GoogleIcon />
         </a>
-        <a href="" className="mx-8">
+        <a href="">
           <GihubIcon className="fill-light-100" />
         </a>
       </div>
-      <form>
-        <div className="mb-4">
-          <label className="block mb-1 text-light-900 ">Username</label>
-          <input
-            type="text"
-            className="w-full bg-dark-500 border-2 border-dark-100 p-2 rounded text-dark-100"
-            placeholder="Username"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1  text-light-900 ">Email</label>
-          <input
-            type="text"
-            className="w-full bg-dark-500 border-2 border-dark-100 p-2 rounded text-dark-100"
-            placeholder="Email"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1  text-light-900 ">Password</label>
-          <div className="relative">
-            <input
-              type={type}
-              className="w-full bg-dark-500 border-2 border-dark-100 p-2 rounded text-light-900"
-              placeholder="Password"
-            />
-            <span
-              onClick={togglePassword}
-              className="absolute top-1/2 right-3 -translate-y-1/2 fill-light-100 "
-            >
-              {type === 'password' ? <EyeOutlineIcon /> : <EyeOffOutlineIcon />}
-            </span>
-          </div>
-        </div>
-        <div className="mb-4">
-          <label className="block mb-1  text-light-900 ">Password confirmation</label>
-          <div className="relative">
-            <input
-              type={type}
-              className="w-full bg-dark-500 border-2 border-dark-100 p-2 rounded text-light-900"
-              placeholder="Password confirmation"
-            />
-            <span
-              onClick={togglePassword}
-              className="absolute top-1/2 right-3 -translate-y-1/2 fill-light-100 "
-            >
-              {type === 'password' ? <EyeOutlineIcon /> : <EyeOffOutlineIcon />}
-            </span>
-          </div>
-        </div>
-        <div className="mb-4">
+      <form className={styles.form}>
+        <Field name="UserName" placeholder="UserName" />
+        <Field name="Email" placeholder="Email" />
+
+        <PasswordField name="Password" placeholder="Password" />
+        <PasswordField name="Password Confirmation" placeholder="Password Confirmation" />
+
+        <div className={styles.checkbox}>
           <input type="checkbox" id="agree" className=" border-gray-400 rounded" />
           <label htmlFor="agree" className="ml-2 text-sm text-light-100">
-            I agree to the{' '}
-            <a className="underline decoration-primary-300 text-primary-300" href="">
-              Terms of Service
-            </a>{' '}
-            and{' '}
-            <a className="underline decoration-primary-300 text-primary-300" href="">
-              Privacy Policy
-            </a>
+            I agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>
           </label>
         </div>
 
