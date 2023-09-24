@@ -1,8 +1,15 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
-import { EyeOutlineIcon, GihubIcon, GoogleIcon } from '@/shared/assets'
+import { EyeOffOutlineIcon, EyeOutlineIcon, GihubIcon, GoogleIcon } from '@/shared/assets'
 
 export const SignUpWidget: FC = () => {
+  const [type, setType] = useState('password')
+
+  const togglePassword = () => {
+    if (type === 'password') setType('text')
+    else setType('password')
+  }
+
   return (
     <div className=" border border-dark-100 rounded-sm px-8 py-8 max-md:w-full lg:w-1/4 bg-dark-500">
       <h3 className=" text-light-100 font-bold text-xl text-center ">Sign Up</h3>
@@ -35,22 +42,32 @@ export const SignUpWidget: FC = () => {
           <label className="block mb-1  text-light-900 ">Password</label>
           <div className="relative">
             <input
-              type="password"
-              className="w-full bg-dark-500 border-2 border-dark-100 p-2 rounded text-dark-100"
+              type={type}
+              className="w-full bg-dark-500 border-2 border-dark-100 p-2 rounded text-light-900"
               placeholder="Password"
             />
-            <EyeOutlineIcon className="absolute top-1/2 right-3 -translate-y-1/2 fill-light-100" />
+            <span
+              onClick={togglePassword}
+              className="absolute top-1/2 right-3 -translate-y-1/2 fill-light-100 "
+            >
+              {type === 'password' ? <EyeOutlineIcon /> : <EyeOffOutlineIcon />}
+            </span>
           </div>
         </div>
         <div className="mb-4">
           <label className="block mb-1  text-light-900 ">Password confirmation</label>
           <div className="relative">
             <input
-              type="password"
-              className="w-full bg-dark-500 border-2 border-dark-100 p-2 text-dark-100 rounded"
+              type={type}
+              className="w-full bg-dark-500 border-2 border-dark-100 p-2 rounded text-light-900"
               placeholder="Password confirmation"
             />
-            <EyeOutlineIcon className="absolute top-1/2 right-3 -translate-y-1/2 fill-light-100" />
+            <span
+              onClick={togglePassword}
+              className="absolute top-1/2 right-3 -translate-y-1/2 fill-light-100 "
+            >
+              {type === 'password' ? <EyeOutlineIcon /> : <EyeOffOutlineIcon />}
+            </span>
           </div>
         </div>
         <div className="mb-4">
