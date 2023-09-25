@@ -13,7 +13,7 @@
             "webRoot": "${workspaceFolder}",
             "sourceMaps": true,
       "sourceMapPathOverrides": {
-          "webpack:/*": "${webRoot}/src/widgets/auth/ui/**/*",
+          "webpack:/*": "${webRoot}/pages/**/*",
           "webpack:///./src/*": "${webRoot}/projects/apps/editor/src/*",
           "/*": "*",
           "/./~/*": "${webRoot}/node_modules/*",

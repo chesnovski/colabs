@@ -3,6 +3,12 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
 
   theme: {
+    fontSize: {
+      sm: ['14px', '24px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '36px'],
+      xl: ['24px', '32px'],
+    },
     extend: {
       fontFamily: {
         primary: ['Inter'],
@@ -13,7 +19,7 @@ module.exports = {
           300: '#F7FBFF',
           500: '#EDF3FA',
           700: '#D5DAE0',
-          900: '#BDC1C7',
+          900: '#8D9094',
         },
         dark: {
           100: '#4C4C4C',

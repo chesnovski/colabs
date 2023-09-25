@@ -1,0 +1,10 @@
+.wrapper {
+    @apply flex flex-col justify-center items-center;
+
+    .heading {
+        @apply  text-light-100 font-bold text-xl text-center;
+    }
+
+
+    
+}
