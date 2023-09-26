@@ -21,6 +21,6 @@ export const BaseLayout: FC<Props> = ({ children }) => {
   )
 }
 
-export const getLayout = (page: ReactElement) => {
+export const getBaseLayout = (page: ReactElement) => {
   return <BaseLayout>{page}</BaseLayout>
 }

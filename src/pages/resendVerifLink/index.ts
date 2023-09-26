@@ -1,1 +1,1 @@
-export { ResendLink } from './ui'
+export { ResendVerifLink } from './ui'

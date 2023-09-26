@@ -8,6 +8,7 @@ module.exports = {
       base: ['16px', '24px'],
       lg: ['20px', '36px'],
       xl: ['24px', '32px'],
+      '3xl': ['30px', '36px'],
     },
     extend: {
       fontFamily: {
