@@ -6,7 +6,7 @@ import { ChevronDownIcon, NoticeIcon } from '@/shared/assets'
 
 export const Header: FC = () => {
   return (
-    <div className="h-16 px-16 py-3 text-light-100 text-3xl border-b border-dark-300 mb-8">
+    <div className="h-16 max-sm:px-6 sm:px-16 py-3 text-light-100 text-3xl border-b border-dark-300 mb-8">
       Colab
     </div>
     // <h1 className="h-16  py-2 px-16 flex justify-between border-b border-gray-500 items-center  text-gray-400">
