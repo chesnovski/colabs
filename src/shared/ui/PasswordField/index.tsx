@@ -1,5 +1,7 @@
 import { forwardRef, useState } from 'react'
 
+import { default as cn } from 'classnames'
+
 import { IField } from '../InputField'
 
 import styles from './PasswordField.module.scss'
@@ -7,7 +9,7 @@ import styles from './PasswordField.module.scss'
 import { EyeOffOutlineIcon, EyeOutlineIcon } from '@/shared/assets'
 
 export const PasswordField = forwardRef<HTMLInputElement, IField>(
-  ({ placeholder, name, style, ...rest }, ref) => {
+  ({ label, placeholder, helperText, style, ...rest }, ref) => {
     const [type, setType] = useState('password')
 
     const togglePassword = () => {
@@ -17,13 +19,14 @@ export const PasswordField = forwardRef<HTMLInputElement, IField>(
 
     return (
       <div className={styles.wrapper} style={style}>
-        <label>{name}</label>
+        <label>{label}</label>
         <div>
-          <input type={type} placeholder={placeholder} />
+          <input ref={ref} type={type} {...rest} placeholder={placeholder} />
           <span onClick={togglePassword}>
             {type === 'password' ? <EyeOutlineIcon /> : <EyeOffOutlineIcon />}
           </span>
         </div>
+        {helperText && <div className="text-white">{helperText}</div>}
       </div>
     )
   }

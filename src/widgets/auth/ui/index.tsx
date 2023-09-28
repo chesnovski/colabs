@@ -22,6 +22,8 @@ export const Auth: FC = () => {
     mode: 'onChange',
   })
 
+  console.log(formState)
+
   const login = () => {}
   const register = () => {}
 
