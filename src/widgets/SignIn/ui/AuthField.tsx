@@ -18,21 +18,28 @@ export const AuthField: FC<IAuthFields> = ({
   return (
     <>
       <Field
-        {...register('Email', {
+        {...register('email', {
           required: 'Email is required',
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: 'Email is invalid ',
+          },
         })}
         label="Email"
         placeholder="Email"
         // error={errors.password}
         helperText={errors.email?.message?.toString()}
       ></Field>
-
       <PasswordField
         {...register('password', {
           required: 'Password is required',
           minLength: {
             value: 6,
-            message: 'Please enter a valid password',
+            message: 'Minimum number of characters 6',
+          },
+          pattern: {
+            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+            message: 'Password is invalid ',
           },
         })}
         label="Password"

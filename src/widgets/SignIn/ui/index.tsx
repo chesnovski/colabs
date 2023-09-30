@@ -35,12 +35,12 @@ export const SignInWidget: FC<IAuthFields> = () => {
   })
 
   const login = (data: any) => {
-    console.log(`Sign In ${data} `)
+    console.log(data)
   }
   // const register = (data: any) => {}
 
   const onSubmit: SubmitHandler<IAuthInput> = data => {
-    if (type === 'login') login(data)
+    type === 'login' && login(data)
     // else if (type === 'register') register(data)
 
     reset()

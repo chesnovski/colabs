@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, forwardRef } from 'react'
 
+import { default as cn } from 'classnames'
 import { FieldError } from 'react-hook-form'
 
 import styles from './InputField.module.scss'
@@ -19,8 +20,18 @@ export const Field = forwardRef<HTMLInputElement, IField>(
     return (
       <div className={styles.wrapper} style={style}>
         <label>{label}</label>
-        <input ref={ref} type={type} {...rest} placeholder={placeholder} />
-        {helperText && <div>{helperText}</div>}
+        <div className={helperText ? '' : 'mb-4'}>
+          <input
+            autoComplete="off"
+            ref={ref}
+            type={type}
+            {...rest}
+            placeholder={placeholder}
+            className={cn(styles.input, helperText ? 'border-red-500' : 'border-dark-100 ')}
+          />
+        </div>
+
+        {helperText && <div className="text-red-500 text-sm">{helperText}</div>}
       </div>
     )
   }
