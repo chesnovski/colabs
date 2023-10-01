@@ -31,7 +31,7 @@ export const Field = forwardRef<HTMLInputElement, IField>(
           />
         </div>
 
-        {helperText && <div className="text-red-500 text-sm">{helperText}</div>}
+        {helperText && <div className="max-w-[330px] text-red-500 text-sm">{helperText}</div>}
       </div>
     )
   }

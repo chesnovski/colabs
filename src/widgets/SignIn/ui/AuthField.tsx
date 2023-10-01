@@ -39,7 +39,8 @@ export const AuthField: FC<IAuthFields> = ({
           },
           pattern: {
             value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-            message: 'Password is invalid ',
+            message:
+              'Password must contain a-z, A-Z, ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [  ] ^ _` { | } ~ ',
           },
         })}
         label="Password"

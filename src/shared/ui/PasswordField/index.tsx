@@ -33,7 +33,7 @@ export const PasswordField = forwardRef<HTMLInputElement, IField>(
             {type === 'password' ? <EyeOutlineIcon /> : <EyeOffOutlineIcon />}
           </span>
         </div>
-        {helperText && <div className="text-red-500 text-sm">{helperText}</div>}
+        {helperText && <div className="max-w-[330px] text-red-500 text-sm">{helperText}</div>}
       </div>
     )
   }
