@@ -18,11 +18,11 @@ export const SignUpWidget: FC = () => {
         </a>
       </div>
       <form className={styles.form}>
-        <Field name="UserName" placeholder="UserName" />
-        <Field name="Email" placeholder="Email" />
+        <Field label="UserName" placeholder="UserName" />
+        <Field label="Email" placeholder="Email" />
 
-        <PasswordField name="Password" placeholder="Password" />
-        <PasswordField name="Password Confirmation" placeholder="Password Confirmation" />
+        <PasswordField label="Password" placeholder="Password" />
+        <PasswordField label="Password Confirmation" placeholder="Password Confirmation" />
 
         <div className={styles.checkbox}>
           <input type="checkbox" id="agree" className=" border-gray-400 rounded" />

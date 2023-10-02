@@ -2,6 +2,8 @@ import React, { FC } from 'react'
 
 import { FormState, UseFormRegister } from 'react-hook-form'
 
+import { validEmail, validPassword } from './regex'
+
 import { Field, PasswordField } from '@/shared'
 
 interface IAuthFields {
@@ -21,7 +23,7 @@ export const AuthField: FC<IAuthFields> = ({
         {...register('email', {
           required: 'Email is required',
           pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            value: validEmail,
             message: 'Email is invalid ',
           },
         })}
@@ -38,7 +40,7 @@ export const AuthField: FC<IAuthFields> = ({
             message: 'Minimum number of characters 6',
           },
           pattern: {
-            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+            value: validPassword,
             message:
               'Password must contain a-z, A-Z, ! " # $ % & \' ( ) * + , - . / : ; < = > ? @ [  ] ^ _` { | } ~ ',
           },
