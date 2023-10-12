@@ -30,35 +30,9 @@ const initialState: IInitialState = {
 
 export interface IAuthResponse {}
 
-export const signUpUser = createAsyncThunk<any, IEmailPasswordUser>(
-  'signupuser',
-  async ({ email, userName, password }) => {
-    const response = await fetch('https://incta.online/api/v1/auth/registration', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
 
-    return await response.json()
-  }
-)
 
-export const signInUser = createAsyncThunk<any, IEmailPassword>(
-  'signinuser',
-  async ({ email, password }) => {
-    const response = await fetch('https://incta.online/api/v1/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
 
-    return await response.json()
-  }
-)
 
 const authSlice = createSlice({
   name: 'user',
@@ -74,39 +48,6 @@ const authSlice = createSlice({
       state.token = null
       localStorage.clear()
     },
-  },
-  extraReducers: builder => {
-    builder
-      .addCase(signUpUser.pending, state => {
-        state.isLoading = true
-      })
-      .addCase(signUpUser.fulfilled, (state, action) => {
-        state.isLoading = false
-      })
-      .addCase(signUpUser.rejected, (state, action) => {
-        state.isLoading = false
-      })
-
-    builder
-      .addCase(signInUser.pending, state => {
-        state.isLoading = true
-      })
-      .addCase(signInUser.fulfilled, (state, { payload: { token, error, messages } }) => {
-        state.isLoading = false
-        if (error) {
-          state.error = error
-        } else {
-          state.token = token
-          state.message = messages.message
-
-          localStorage.setItem('message', messages.message)
-          // localStorage.setItem('user', user)
-          localStorage.setItem('token', token)
-        }
-      })
-      .addCase(signInUser.rejected, (state, action) => {
-        state.isLoading = false
-      })
   },
 })
 
